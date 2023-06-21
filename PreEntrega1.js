@@ -3,25 +3,26 @@ let opciones = "1. Ver carrito \n2. Añadir artículos \n3. Eliminar artículo \
 var carritoItems = []
 
 class Producto {
-    constructor (nombreProducto, precioProducto, descripcionProducto) {
+    constructor (nombreProducto, precioProducto, descripcionProducto, id) {
         this.nombreProducto = nombreProducto;
         this.precioProducto = precioProducto;
         this.descripcionProducto = descripcionProducto;
+        this.id = id
     }
 
 }
 
-const producto1 = new Producto ("Ensalada de Quinoa y Aguacate", 10.99, "Quinoa, aguacate, tomate, cebolla, cilantro y vinagreta de limón.")
+const producto1 = new Producto ("Ensalada de Quinoa y Aguacate", 10.99, "Quinoa, aguacate, tomate, cebolla, cilantro y vinagreta de limón.", 0)
 
-const producto2 = new Producto ("Tacos de Coliflor", 3.50, "Tortillas de maíz rellenas de coliflor asada, cebolla y cilantro, con guacamole y salsa de chile.")
+const producto2 = new Producto ("Tacos de Coliflor", 3.50, "Tortillas de maíz rellenas de coliflor asada, cebolla y cilantro, con guacamole y salsa de chile.", 1)
 
-const producto3 = new Producto ("Bowl de Arroz Integral y Lentejas", 5.55, "Arroz integral, lentejas, espinacas, pepino, zanahoria, tomate y aderezo de tahini.")
+const producto3 = new Producto ("Bowl de Arroz Integral y Lentejas", 5.55, "Arroz integral, lentejas, espinacas, pepino, zanahoria, tomate y aderezo de tahini.", 2)
 
-const producto4 = new Producto ("Tostadas de Frijoles", 1.95, "Tostadas crujientes con frijoles negros, aguacate, tomate, cilantro y salsa de chile.")
+const producto4 = new Producto ("Tostadas de Frijoles", 1.95, "Tostadas crujientes con frijoles negros, aguacate, tomate, cilantro y salsa de chile.", 3)
 
-const producto5 = new Producto ("Wrap de Hummus y Verduras", 4.50, "Tortilla de avena rellena de hummus, espinacas, pepino, zanahoria, tomate y cebolla roja.")
+const producto5 = new Producto ("Wrap de Hummus y Verduras", 4.50, "Tortilla de avena rellena de hummus, espinacas, pepino, zanahoria, tomate y cebolla roja.", 4)
 
-const producto6 = new Producto ("Hamburguesa de Lentejas", 9.95, "Hamburguesa vegetariana de lentejas con aguacate, tomate, cebolla y aderezo de tahini.")
+const producto6 = new Producto ("Hamburguesa de Lentejas", 9.95, "Hamburguesa vegetariana de lentejas con aguacate, tomate, cebolla y aderezo de tahini.", 5)
 
 const listaProductos = [producto1, producto2, producto3, producto4, producto5, producto6]
 
@@ -66,7 +67,15 @@ function VerCarrito (carrito) {
 }
 
 function addArticulo (n, productos, carrito) {
-    carrito.push(productos[n])
+    let seleccion = productos.find(
+        (producto) => producto.id === n
+    )
+    if(seleccion == undefined){
+        alert(`Vuelve a ingresar una opción válida.`)
+    } 
+    else{
+        carrito.push(seleccion)
+    }
 }
 
 function delArticulo (n, carrito) {
