@@ -42,13 +42,14 @@ while (true) {
         case "4":
             facturar(carritoItems, nombre);
             break;
-
         case "5":
-            console.log("Hasta luego!");
+            alert("Hasta luego!");
             break;
         default:
-            console.log("Por favor, selecciona una de las opciones")
+            alert("Por favor, selecciona una de las opciones")
     }
+
+    break
 }
 
 
