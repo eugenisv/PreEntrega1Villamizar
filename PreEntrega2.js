@@ -26,7 +26,8 @@ const producto6 = new Producto ("Hamburguesa de Lentejas", 9.95, "Hamburguesa ve
 
 const listaProductos = [producto1, producto2, producto3, producto4, producto5, producto6]
 
-while (true) {
+salir = false
+while (salir == false) {
     var opcion = prompt(`Hola, ${nombre}. \nPor favor, seleccione una opción indicando un número.\n` + opciones)
 
     switch (opcion) {
@@ -43,13 +44,13 @@ while (true) {
             facturar(carritoItems, nombre);
             break;
         case "5":
+            salir = true
             alert("Hasta luego!");
             break;
         default:
             alert("Por favor, selecciona una de las opciones")
     }
-
-    break
+    
 }
 
 
